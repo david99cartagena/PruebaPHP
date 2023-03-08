@@ -19,9 +19,9 @@ Herramientas utilizadas
 - [Git] - version 2.34.1, Sistema de control de versiones
 
 www
-cmd
-composer global require laravel/installer
-laravel new applaravel
-php artisan --version
-php artisan serve
-node -v
+- cmd
+- composer global require laravel/installer
+- laravel new applaravel
+- php artisan --version
+- php artisan serve
+- node -v
