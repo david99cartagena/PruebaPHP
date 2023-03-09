@@ -23,9 +23,18 @@ Comandos o scripts de apoyo.
 
 ```sh
 composer global require laravel/installer
+```
+```sh
 laravel new applaravel
+```
+```sh
 php artisan --version
+```
+```sh
 php artisan serve
+```
+
+```sh
 node -v
 
 ```
@@ -35,14 +44,25 @@ Migrar modelo de MySQl a  Laravel...
 ```sh
 #Mas info en https://github.com/reliese/laravel
 composer require reliese/laravel --dev
+```
+```sh
 php artisan vendor:publish --tag=reliese-models
-Refrescar cache 
+```
+```sh
+#Refrescar cache 
 php artisan config:clear
-
+```
+```sh
 #Creacion modelo y controlador
 php artisan code:models
+```
+```sh
 php artisan make:controller ProProcesoController --resource
+```
+```sh
 php artisan make:controller TipTipoDocController --resource
+```
+```sh
 php artisan make:controller DocDocumentoController --resource
 ```
 
