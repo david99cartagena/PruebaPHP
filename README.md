@@ -18,7 +18,34 @@ Herramientas utilizadas
 - [Laravel] - version 8.83.27, Framework de Frontend
 - [Git] - version 2.34.1, Sistema de control de versiones
 
-www
+
+Comandos o scripts de apoyo.
+
+```sh
+composer global require laravel/installer
+laravel new applaravel
+php artisan --version
+php artisan serve
+node -v
+
+```
+
+Migrar modelo de MySQl a  Laravel...
+
+```sh
+#Mas info en https://github.com/reliese/laravel
+composer require reliese/laravel --dev
+php artisan vendor:publish --tag=reliese-models
+Refrescar cache 
+php artisan config:clear
+
+#Creacion modelo y controlador
+php artisan code:models
+php artisan make:controller ProProcesoController --resource
+php artisan make:controller TipTipoDocController --resource
+php artisan make:controller DocDocumentoController --resource
+```
+
 - cmd
 - composer global require laravel/installer
 - laravel new applaravel
