@@ -27,16 +27,18 @@ composer global require laravel/installer
 ```sh
 laravel new applaravel
 ```
-```sh
-php artisan --version
-```
+
 ```sh
 php artisan serve
 ```
+```sh
+# Version node.js
+node -v
+```
 
 ```sh
-node -v
-
+# Version de Laravel
+php artisan --version
 ```
 
 Migrar modelo de MySQl a  Laravel...
