@@ -1,9 +1,10 @@
 <?php
+
+use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\ProProcesoController;
 use App\Http\Controllers\TipTipoDocController;
 use App\Http\Controllers\DocDocumentoController;
-
-use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,8 +19,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::get("/", [ProProcesoController::class, "index"])->name("proproc.index");
 
-//Route::post("/registar-proceso", [CrudController::class, "create"])->name("crud.create");
-Route::resource('registar-proceso','App\Http\Controllers\ProProcesoController'::class);
-//Route::post("/registar-proceso", [ProProcesoController::class, "create"])->name("ProProcesoController.create");
-
-Route::post('/registar-proceso', [ProProcesoController::class, "create"])->name("ProProcesoController.create");
+Route::post("/registar-proceso", [ProProcesoController::class, "create"])->name("proproc.create");

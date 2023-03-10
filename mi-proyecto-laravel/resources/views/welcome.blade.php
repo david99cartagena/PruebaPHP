@@ -17,57 +17,55 @@
         @if (session("correcto"))
         <div class="alert alert-success">{{session("correcto")}}</div>
         @endif
-
         @if (session("incorrecto"))
         <div class="alert alert-danger">{{session("incorrecto")}}</div>
         @endif
-        
-        <div class="modal fade" id="modalregistrar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalRegistrar">Crear Registro</button>
+        <!-- Modal Registro Proceso -->
+        <div class="modal fade" id="modalRegistrar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Registrar Proceso</h1>
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Modificar Proceso</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form method="post" action="{{route("ProProcesoController.create")}}">
-                        {{-- <form action="{{route("crud.create")}}" method="post"> --}}
+                        <form action="{{route("proproc.create")}}" method="post">
                             @csrf
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Id</label>
-                                <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="crearproid">  
+                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="txtproid">
                             </div>
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Prefijo de Proceso</label>
-                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="crearproprefijo">
+                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="txtproprefijo">  
                             </div>
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Nombre del Proceso</label>
-                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="crearpronombre">  
+                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="txtpronombre">  
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary">Registrar Proceso</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                             </div>
                         </form>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-primary">Crear Registro</button>
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        </div>
                     </div>
                 </div>
             </div>
-
         </div>
 
         {{-- tabla principal --}}
         <div class="p-5 table-responsive">
-            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalregistrar">Crear Registro</button>
-            <table class="table table-striped table-bordered">
+            <table class="table table-striped table-bordered table-hover">
                 <thead>
                     <tr>
                         <th scope="col">Id</th>
                         <th scope="col">Prefijo</th>
                         <th scope="col">Nombre</th>
+                        <th></th>
                     </tr>
                 </thead>
-
                 <tbody class="table-group-divider">
                     @foreach ($datos as $item)
                     <tr>
@@ -75,45 +73,44 @@
                         <td>{{$item->PRO_PREFIJO}}</td>
                         <td>{{$item->PRO_NOMBRE}}</td>
                         <td>
-                            {{-- <a href="" data-bs-toggle="modal" data-bs-target="#modaleditar{{$item->PRO_ID}}" class="btn btn-warning btn-sm"><i class="fa-solid fa-pen-to-square"></i></a> --}}
-                            <a href="" data-bs-toggle="modal" data-bs-target="#modaleditar" class="btn btn-warning btn-sm"><i class="fa-solid fa-pen-to-square"></i></a>
+                            <a href="" data-bs-toggle="modal" data-bs-target="#modalEditar{{$item->PRO_ID}}" class="btn btn-warning btn-sm"><i class="fa-solid fa-pen-to-square"></i></a>
                             <a href="" class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i></a>
                         </td>
 
-                        <!-- Modal -->
-                <div class="modal fade" id="modaleditar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="exampleModalLabel">Modificar Proceso</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                {{-- <form action="{{route("crud.update")}}" method="post"> --}}
-                                <form>
-                                    @csrf
-                                    <div class="mb-3">
-                                        <label for="exampleInputEmail1" class="form-label">Id</label>
-                                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="editarproid" value={{$item->PRO_ID}} readonly>
+                        <!-- Modal Modificar Proceso -->
+                        <div class="modal fade" id="modalEditar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Modificar Proceso</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
-                                    <div class="mb-3">
-                                        <label for="exampleInputEmail1" class="form-label">Prefijo de Proceso</label>
-                                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="editarproprefijo" value={{$item->PRO_PREFIJO}}>  
+                                    <div class="modal-body">
+                                        {{-- <form action="{{route("crud.update")}}" method="post"> --}}
+                                        <form>
+                                            @csrf
+                                            <div class="mb-3">
+                                                <label for="exampleInputEmail1" class="form-label">Id</label>
+                                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="txtproid" value={{$item->PRO_ID}} readonly>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="exampleInputEmail1" class="form-label">Prefijo de Proceso</label>
+                                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="txtproprefijo" value={{$item->PRO_PREFIJO}}>  
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="exampleInputEmail1" class="form-label">Nombre del Proceso</label>
+                                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="txtpronombre" value={{$item->PRO_NOMBRE}}>  
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-primary ">Modificar Proceso</button>
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            </div>
+                                        </form>
                                     </div>
-                                    <div class="mb-3">
-                                        <label for="exampleInputEmail1" class="form-label">Nombre del Proceso</label>
-                                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="editarpronombre" value={{$item->PRO_NOMBRE}}>  
-                                    </div>
-                                </form>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Modificar Proceso</button>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                </tr>
+                    </tr>
                 @endforeach
                 </tbody>
             </table>
@@ -122,6 +119,5 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" 
             integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
         </script>
-
     </body>
 </html>

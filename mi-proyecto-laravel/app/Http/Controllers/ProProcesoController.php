@@ -23,16 +23,16 @@ class ProProcesoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $datos)
+    public function create(Request $request)
     {
         try {
             $sql = DB::insert(" insert into PRO_PROCESO(PRO_ID,PRO_PREFIJO,PRO_NOMBRE)values(?,?,?) ", [
-                $datos->crearproid,
-                $datos->crearproprefijo,
-                $datos->crearpronombre
+                $request->txtproid,
+                $request->txtproprefijo,
+                $request->txtpronombre
                 
             ]);
-            //$request->save();
+            
         } catch (\Throwable $th) {
             $sql = 0;
         }
