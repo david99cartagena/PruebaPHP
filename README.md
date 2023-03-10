@@ -68,9 +68,4 @@ php artisan make:controller TipTipoDocController --resource
 php artisan make:controller DocDocumentoController --resource
 ```
 
-- cmd
-- composer global require laravel/installer
-- laravel new applaravel
-- php artisan --version
-- php artisan serve
-- node -v
+> puerto por defecto http://127.0.0.1:8000
