@@ -7,7 +7,7 @@
     //echo "Logged out successfully";
     session_start();
     session_destroy();
-    header("Location: form.php");
+    header("Location: index.php");
     //header("Location: index.php");
     ?>
 
