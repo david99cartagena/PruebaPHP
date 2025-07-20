@@ -1,71 +1,98 @@
-# PruebaPHP
-Prueba en PHP creacion de un crud con mvc
+# 📌 PruebaPHP
 
-## Acceso
+Proyecto de prueba en PHP: creación de un CRUD utilizando el patrón **MVC** (Modelo-Vista-Controlador).
 
-- Usuario = usuario
-- contraseña = 123
+---
 
-## Construido con 🛠️
+## 🔐 Acceso a la aplicación
 
-Herramientas utilizadas
+-   **Usuario**: `usuario`
+-   **Contraseña**: `123`
 
-- [WampServer] - version 3.3.0, Servidor Local
-- [Php] - version 7.4.33
-- [VisualStudioCode] - version 1.76.0, Editor de codigo
-- [node.js] - version v18.14.2, Entorno en tiempo de ejecución multiplataforma para la capa del servidor ( en el lado del servidor )
-- [Composer] - version 2.5.4, Sistema de gestión de paquetes para programar en PHP
-- [Laravel] - version 8.83.27, Framework de Frontend
-- [Git] - version 2.34.1, Sistema de control de versiones
+## 🛠️ Tecnologías y herramientas utilizadas
 
+| Herramienta        | Versión | Descripción                                                    |
+| ------------------ | ------- | -------------------------------------------------------------- |
+| WampServer         | 3.3.0   | Servidor local para entorno PHP/MySQL                          |
+| PHP                | 7.4.33  | Lenguaje de programación backend                               |
+| Visual Studio Code | 1.76.0  | Editor de código fuente                                        |
+| Node.js            | 18.14.2 | Entorno de ejecución JavaScript (servidor)                     |
+| Composer           | 2.5.4   | Gestor de dependencias para PHP                                |
+| Laravel            | 8.83.27 | Framework PHP utilizado para construir el backend del proyecto |
+| Git                | 2.34.1  | Sistema de control de versiones                                |
 
-Comandos o scripts de apoyo.
+---
 
-```sh
+## ⚙️ Comandos útiles
+
+### 📦 Instalación de Laravel
+
+```bash
 composer global require laravel/installer
 ```
-```sh
+
+-   Crear un proyecto nuevo
+
+```bash
 laravel new applaravel
 ```
 
-```sh
+### 🚀 Ejecutar el servidor
+
+```bash
 php artisan serve
 ```
-```sh
-# Version node.js
-node -v
+
+### 🔎 Verificar versiones
+
+```bash
+node -v                # Ver versión de Node.js
 ```
 
-```sh
-# Version de Laravel
-php artisan --version
+```bash
+php artisan --version  # Ver versión de Laravel
 ```
 
-Migrar modelo de MySQl a  Laravel...
+---
 
-```sh
-#Mas info en https://github.com/reliese/laravel
+## 🔄 Generar modelos desde base de datos (MySQL ➝ Laravel)
+
+Usando el paquete [`reliese/laravel`](https://github.com/reliese/laravel):
+
+```bash
 composer require reliese/laravel --dev
 ```
-```sh
+
+```bash
 php artisan vendor:publish --tag=reliese-models
 ```
-```sh
-#Refrescar cache 
+
+```bash
 php artisan config:clear
 ```
-```sh
-#Creacion modelo y controlador
+
+```bash
 php artisan code:models
 ```
-```sh
+
+---
+
+## 🧩 Creación de controladores
+
+```bash
 php artisan make:controller ProProcesoController --resource
 ```
-```sh
+
+```bash
 php artisan make:controller TipTipoDocController --resource
 ```
-```sh
+
+```bash
 php artisan make:controller DocDocumentoController --resource
 ```
 
-> puerto por defecto http://127.0.0.1:8000
+---
+
+## 🌐 Puerto de desarrollo
+
+> La aplicación se ejecuta en: [http://127.0.0.1:8000](http://127.0.0.1:8000)
